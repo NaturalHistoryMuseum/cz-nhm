@@ -65,7 +65,7 @@ def parse_issues(text):
     Extract a list of issues from the input.
     """
     if isinstance(text, str):
-        return [i.strip().strip('#') for i in text.split(',')]
+        return [i.strip().strip('#') for i in text.split(',') if i != '']
     return []
 
 
@@ -163,7 +163,7 @@ class NHMCz(BaseCommitizen):
             message += f'\n\nBREAKING CHANGE: {subject}'
         if body:
             message += f'\n\n{body}'
-        if issues:
+        if len(issues) > 0:
             message += f'\n\nCloses: #{", #".join(issues)}'
 
         return message

@@ -191,7 +191,7 @@ class NHMCz(BaseCommitizen):
             "<BLANK LINE>\n"
             "<body>\n"
             "<BLANK LINE>\n"
-            "<issues>"
+            "Closes: <issues>"
         )
 
     def schema_pattern(self) -> str:

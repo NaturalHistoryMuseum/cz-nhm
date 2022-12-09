@@ -25,13 +25,13 @@ change_types = [
     ChangeType(
         'perf', 'Performance', 'PATCH', 'a code change that improves performance'
     ),
-    ChangeType('docs', 'Docs', None, 'documentation-only changes'),
-    ChangeType('style', 'Style', None, 'whitespace, formatting, etc'),
-    ChangeType('test', 'Tests', None, 'adds or fixes tests'),
+    ChangeType('docs', 'Docs', 'PATCH', 'documentation-only changes'),
+    ChangeType('style', 'Style', 'PATCH', 'whitespace, formatting, etc'),
+    ChangeType('test', 'Tests', 'PATCH', 'adds or fixes tests'),
     ChangeType(
         'build',
         'Build System(s)',
-        None,
+        'PATCH',
         'changes in build systems (e.g. pip or docker)',
     ),
     ChangeType(

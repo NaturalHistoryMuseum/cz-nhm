@@ -1,6 +1,6 @@
 [project]
 name = "cz_nhm"
-version = "0.2.0"
+version = "0.3.0"
 description = "Commitizen config for the NHM, London"
 readme = "README.md"
 license = { text = "MIT" }
@@ -45,7 +45,7 @@ make-summary-multi-line = true
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.2.0"
+version = "0.3.0"
 tag_format = "v$version"
 update_changelog_on_bump = true
 changelog_incremental = false

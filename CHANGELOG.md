@@ -1,3 +1,9 @@
+## v0.3.0 (2023-02-01)
+
+### Feat
+
+- add 'ui' change type for very minor UI changes
+
 ## v0.2.0 (2022-12-09)
 
 ### Feat

@@ -5,7 +5,6 @@ from collections import namedtuple
 from commitizen.cz.base import BaseCommitizen
 from commitizen.cz.utils import multiple_line_breaker, required_validator
 
-
 # CHANGE TYPES =========================================================================
 
 ChangeType = namedtuple(
@@ -44,6 +43,12 @@ change_types = [
     ChangeType('patch', None, 'PATCH', 'explicitly bumps patch version'),
     ChangeType('bump', None, None, None),
     ChangeType('revert', None, None, None),
+    ChangeType(
+        'ui',
+        'Minor UI Changes',
+        'PATCH',
+        'very minor UI fixes e.g. adding a contact email',
+    ),
 ]
 
 

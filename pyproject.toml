@@ -20,7 +20,7 @@ repository = "https://github.com/NaturalHistoryMuseum/cz-nhm"
 changelog = "https://github.com/NaturalHistoryMuseum/cz-nhm/blob/main/CHANGELOG.md"
 
 [project.entry-points."commitizen.plugin"]
-plugin = "cz_nhm:NHMCz"
+cz_nhm = "cz_nhm:NHMCz"
 
 
 [build-system]

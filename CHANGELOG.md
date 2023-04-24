@@ -1,3 +1,9 @@
+## v0.4.1 (2023-04-24)
+
+### Fix
+
+- make entrypoint name the name of the plugin
+
 ## v0.4.0 (2023-04-24)
 
 ### Feat

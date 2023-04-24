@@ -207,6 +207,3 @@ class NHMCz(BaseCommitizen):
             r'( [^\n\r]+)'  # subject
             r'((\n\n.*)|(\s*))?$'
         )
-
-
-discover_this = NHMCz

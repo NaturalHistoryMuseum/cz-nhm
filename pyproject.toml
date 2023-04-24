@@ -19,6 +19,9 @@ dependencies = [
 repository = "https://github.com/NaturalHistoryMuseum/cz-nhm"
 changelog = "https://github.com/NaturalHistoryMuseum/cz-nhm/blob/main/CHANGELOG.md"
 
+[project.entry-points."commitizen.plugin"]
+plugin = "cz_nhm:NHMCz"
+
 
 [build-system]
 requires = ["setuptools", "wheel"]

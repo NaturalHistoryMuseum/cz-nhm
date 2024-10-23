@@ -4,6 +4,8 @@ from collections import namedtuple
 
 from commitizen.cz.base import BaseCommitizen
 from commitizen.cz.utils import multiple_line_breaker, required_validator
+from commitizen import defaults as cz_defaults
+from collections import OrderedDict
 
 # CHANGE TYPES =========================================================================
 
@@ -89,10 +91,11 @@ def parse_scope(text):
 
 
 class NHMCz(BaseCommitizen):
-    bump_pattern = (
-        rf'^({"|".join([c.short_name for c in change_types if c.bump_type])})'
+    bump_pattern = cz_defaults.bump_pattern
+    bump_map = OrderedDict(
+        [(r'^.+!$', 'MAJOR')]
+        + [(f'^{c.short_name}', c.bump_type) for c in change_types if c.bump_type]
     )
-    bump_map = {c.short_name: c.bump_type for c in change_types if c.bump_type}
     commit_parser = rf'^(?P<change_type>{"|".join([c.short_name for c in change_types if c.display_name])})(?:\((?P<scope>[^)\r\n]+)\))?: (?P<message>[^\n]+)'
     changelog_pattern = (
         rf'^({"|".join([c.short_name for c in change_types if c.display_name])})'
@@ -163,11 +166,11 @@ class NHMCz(BaseCommitizen):
         if scope:
             message += f'({scope})'
         message += f': {subject}'
+        if body:
+            message += f'\n\n{body}'
         if is_breaking_change:
             # repeat the subject so the changelog can pick it up
             message += f'\n\nBREAKING CHANGE: {subject}'
-        if body:
-            message += f'\n\n{body}'
         if len(issues) > 0:
             message += f'\n\nCloses: #{", #".join(issues)}'
 
@@ -190,13 +193,13 @@ class NHMCz(BaseCommitizen):
         Used by cz schema.
         """
         return (
-            "<type>(<scope>): <subject>\n"
-            "<BLANK LINE>\n"
-            "BREAKING CHANGE: <subject>\n"
-            "<BLANK LINE>\n"
-            "<body>\n"
-            "<BLANK LINE>\n"
-            "Closes: <issues>"
+            '<type>(<scope>): <subject>\n'
+            '<BLANK LINE>\n'
+            '<body>\n'
+            '<BLANK LINE>\n'
+            'BREAKING CHANGE: <subject>\n'
+            '<BLANK LINE>\n'
+            'Closes: <issues>'
         )
 
     def schema_pattern(self) -> str:

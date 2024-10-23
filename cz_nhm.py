@@ -4,6 +4,8 @@ from collections import namedtuple
 
 from commitizen.cz.base import BaseCommitizen
 from commitizen.cz.utils import multiple_line_breaker, required_validator
+from commitizen import defaults as cz_defaults
+from collections import OrderedDict
 
 # CHANGE TYPES =========================================================================
 
@@ -89,10 +91,11 @@ def parse_scope(text):
 
 
 class NHMCz(BaseCommitizen):
-    bump_pattern = (
-        rf'^({"|".join([c.short_name for c in change_types if c.bump_type])})'
+    bump_pattern = cz_defaults.bump_pattern
+    bump_map = OrderedDict(
+        [(r'^.+!$', 'MAJOR')]
+        + [(f'^{c.short_name}', c.bump_type) for c in change_types if c.bump_type]
     )
-    bump_map = {c.short_name: c.bump_type for c in change_types if c.bump_type}
     commit_parser = rf'^(?P<change_type>{"|".join([c.short_name for c in change_types if c.display_name])})(?:\((?P<scope>[^)\r\n]+)\))?: (?P<message>[^\n]+)'
     changelog_pattern = (
         rf'^({"|".join([c.short_name for c in change_types if c.display_name])})'

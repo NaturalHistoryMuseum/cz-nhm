@@ -1,3 +1,13 @@
+## v0.5.0 (2024-10-23)
+
+### Feat
+
+- enable breaking changes with exclamation marks
+
+### Fix
+
+- move breaking to footer
+
 ## v0.4.1 (2023-04-24)
 
 ### Fix

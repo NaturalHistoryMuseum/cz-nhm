@@ -193,13 +193,13 @@ class NHMCz(BaseCommitizen):
         Used by cz schema.
         """
         return (
-            "<type>(<scope>): <subject>\n"
-            "<BLANK LINE>\n"
-            "<body>\n"
-            "<BLANK LINE>\n"
-            "BREAKING CHANGE: <subject>\n"
-            "<BLANK LINE>\n"
-            "Closes: <issues>"
+            '<type>(<scope>): <subject>\n'
+            '<BLANK LINE>\n'
+            '<body>\n'
+            '<BLANK LINE>\n'
+            'BREAKING CHANGE: <subject>\n'
+            '<BLANK LINE>\n'
+            'Closes: <issues>'
         )
 
     def schema_pattern(self) -> str:

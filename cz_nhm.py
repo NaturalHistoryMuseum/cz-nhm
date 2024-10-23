@@ -163,11 +163,11 @@ class NHMCz(BaseCommitizen):
         if scope:
             message += f'({scope})'
         message += f': {subject}'
+        if body:
+            message += f'\n\n{body}'
         if is_breaking_change:
             # repeat the subject so the changelog can pick it up
             message += f'\n\nBREAKING CHANGE: {subject}'
-        if body:
-            message += f'\n\n{body}'
         if len(issues) > 0:
             message += f'\n\nCloses: #{", #".join(issues)}'
 
@@ -192,9 +192,9 @@ class NHMCz(BaseCommitizen):
         return (
             "<type>(<scope>): <subject>\n"
             "<BLANK LINE>\n"
-            "BREAKING CHANGE: <subject>\n"
-            "<BLANK LINE>\n"
             "<body>\n"
+            "<BLANK LINE>\n"
+            "BREAKING CHANGE: <subject>\n"
             "<BLANK LINE>\n"
             "Closes: <issues>"
         )

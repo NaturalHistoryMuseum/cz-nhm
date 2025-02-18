@@ -1,11 +1,10 @@
 # !/usr/bin/env python
 # encoding: utf-8
-from collections import namedtuple
+from collections import OrderedDict, namedtuple
 
+from commitizen import defaults as cz_defaults
 from commitizen.cz.base import BaseCommitizen
 from commitizen.cz.utils import multiple_line_breaker, required_validator
-from commitizen import defaults as cz_defaults
-from collections import OrderedDict
 
 # CHANGE TYPES =========================================================================
 
@@ -95,6 +94,12 @@ class NHMCz(BaseCommitizen):
     bump_map = OrderedDict(
         [(r'^.+!$', 'MAJOR')]
         + [(f'^{c.short_name}', c.bump_type) for c in change_types if c.bump_type]
+    )
+    bump_map_major_version_zero = OrderedDict(
+        [
+            (pattern, bump_type.replace('MAJOR', 'MINOR'))
+            for pattern, bump_type in bump_map.items()
+        ]
     )
     commit_parser = rf'^(?P<change_type>{"|".join([c.short_name for c in change_types if c.display_name])})(?:\((?P<scope>[^)\r\n]+)\))?: (?P<message>[^\n]+)'
     changelog_pattern = (

@@ -1,11 +1,10 @@
 # !/usr/bin/env python
 # encoding: utf-8
-from collections import namedtuple
+from collections import OrderedDict, namedtuple
 
+from commitizen import defaults as cz_defaults
 from commitizen.cz.base import BaseCommitizen
 from commitizen.cz.utils import multiple_line_breaker, required_validator
-from commitizen import defaults as cz_defaults
-from collections import OrderedDict
 
 # CHANGE TYPES =========================================================================
 

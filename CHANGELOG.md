@@ -1,3 +1,9 @@
+## v0.6.0 (2025-02-18)
+
+### Feat
+
+- enable major_version_zero flag by adding bump map
+
 ## v0.5.0 (2024-10-23)
 
 ### Feat

@@ -1,3 +1,9 @@
+## v0.7.0 (2025-02-27)
+
+### Feat
+
+- ignore dist package build commits
+
 ## v0.6.0 (2025-02-18)
 
 ### Feat

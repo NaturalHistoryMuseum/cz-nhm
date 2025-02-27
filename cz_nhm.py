@@ -215,3 +215,12 @@ class NHMCz(BaseCommitizen):
             r'( [^\n\r]+)'  # subject
             r'((\n\n.*)|(\s*))?$'
         )
+
+    def changelog_message_builder_hook(self, parsed_message, commit):
+        # ignore dist package build commits
+        if (
+            parsed_message['change_type'] == 'chore'
+            and parsed_message['scope'] == 'dist'
+        ):
+            return False
+        return parsed_message

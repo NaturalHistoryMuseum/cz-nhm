@@ -1,3 +1,9 @@
+## v0.7.1 (2025-05-27)
+
+### Fix
+
+- update bump pattern variable name
+
 ## v0.7.0 (2025-02-27)
 
 ### Feat

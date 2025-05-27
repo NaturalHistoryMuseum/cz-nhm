@@ -90,7 +90,7 @@ def parse_scope(text):
 
 
 class NHMCz(BaseCommitizen):
-    bump_pattern = cz_defaults.bump_pattern
+    bump_pattern = cz_defaults.BUMP_PATTERN
     bump_map = OrderedDict(
         [(r'^.+!$', 'MAJOR')]
         + [(f'^{c.short_name}', c.bump_type) for c in change_types if c.bump_type]

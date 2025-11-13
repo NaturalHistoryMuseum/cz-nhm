@@ -216,6 +216,10 @@ class NHMCz(BaseCommitizen):
             r'((\n\n.*)|(\s*))?$'
         )
 
+    def info(self) -> str:
+        return ('Commit messages are in the conventional commits style, with a few '
+                'extra commit types available.')
+
     def changelog_message_builder_hook(self, parsed_message, commit):
         # ignore dist package build commits
         if (
